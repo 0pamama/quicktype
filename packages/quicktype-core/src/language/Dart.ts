@@ -661,18 +661,7 @@ export class DartRenderer extends ConvenienceRenderer {
     }
 
     private _emitStringJsonEncoderDecoder(className: Name): void {
-        this.ensureBlankLine();
-        this.emitLine(
-            "factory ",
-            className,
-            ".fromMap",
-            "(Map<String, dynamic> j) => ",
-            className,
-            ".",
-            this.fromJson,
-            "(j);"
-        );
-        
+
         this.ensureBlankLine();
         this.emitLine(
             "factory ",
