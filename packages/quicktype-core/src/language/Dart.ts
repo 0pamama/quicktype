@@ -665,6 +665,18 @@ export class DartRenderer extends ConvenienceRenderer {
         this.emitLine(
             "factory ",
             className,
+            ".fromMap",
+            "(Map<String, dynamic> j) => ",
+            className,
+            ".",
+            this.fromJson,
+            "(j);"
+        );
+        
+        this.ensureBlankLine();
+        this.emitLine(
+            "factory ",
+            className,
             ".from",
             this._options.methodNamesWithMap ? "Json" : "RawJson",
             "(String str) => ",
