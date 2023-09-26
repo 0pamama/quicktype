@@ -869,6 +869,17 @@ export class DartRenderer extends ConvenienceRenderer {
                 this.dartType(t),
                 " ",
                 decoder,
+                "(Map<String, dynamic> j) => ",
+                this.fromDynamicExpression(t.isNullable, t, "j"),
+                ";"
+            );
+            
+            this.ensureBlankLine();
+            
+            this.emitLine(
+                this.dartType(t),
+                " ",
+                decoder,
                 "(String str) => ",
                 this.fromDynamicExpression(t.isNullable, t, "json.decode(str)"),
                 ";"
